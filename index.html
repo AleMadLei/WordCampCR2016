@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>WordCamp Costa Rica 2016: Flujo de trabajo, desde el desarrollo hasta el deployment</title>
+  <link rel="stylesheet" href="bower_components/reveal-js/css/reveal.min.css" />
+  <link rel="stylesheet" href="bower_components/reveal-js/css/theme/default.css" />
+  <link rel="stylesheet" media="print" href="bower_components/reveal-js/css/print/pdf.css" />
+  <script type="text/javascript" src="bower_components/reveal-js/js/reveal.min.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="sponsors-inicio">
+        <img src="img/sponsors.jpg" alt="Sponsors" />
+      </section>
+      <section id="portada">
+        <h1 style="margin-bottom: 0.5em;">Flujo de Trabajo, desde el desarrollo hasta el deployment</h1>
+        <h2>Alejandro Madrigal Leiva</h2>
+        <h3 style="margin-bottom: 1em;">me@alemadlei.tech</h3>
+        <h4>Noviembre, 2016</h4>
+      </section>
+      <section id="agenda">
+        <h2>Agenda</h2>
+        <ul>
+          <li class="fragment">Docker</li>
+          <li class="fragment">WP-CLI</li>
+          <li class="fragment">Docker Compose</li>
+          <li class="fragment">Composer</li>
+          <li class="fragment">Proceso de build</li>
+          <li class="fragment">Wordpress Configuration Manager</li>
+        </ul>
+      </section>
+      <section id="ambiente">
+        <section id="ambiente__problemas">
+          <h2>Problemas en la fase de desarrollo</h2>
+          <h3>Los más comunes (experiencia personal)</h3>
+          <ul>
+            <li class="fragment">Diferencia de ambientes (Linux, OS X, Windows)</li>
+            <li class="fragment">Diferencias entre versiones del "mismo" ambiente o bibliotecas</li>
+            <li class="fragment">Diferentes capacidades técnicas (Desarrolladores, Administradores de Servidores, Diseñadores, QA, Management)</li>
+          </ul>
+        </section>
+        <section id="ambiente__soluciones">
+          <h2>Soluciones existentes</h2>
+          <ul>
+            <li class="fragment">Servidor de desarrollo</li>
+            <li class="fragment">Máquinas virtuales</li>
+            <li class="fragment">Vagrant</li>
+            <li class="fragment">Docker</li>
+          </ul>
+        </section>
+        <section id="ambiente__docker">
+          <h2>Docker</h2>
+          <p>Docker provee una forma de ejecutar aplicaciones seguramente aisladas en un contenedor, empacadas con todas sus dependencias y bibliotecas.</p>
+          <p><a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://docs.docker.com/" target="_blank">Documentación</a></p>
+          <p><a href="https://docs.docker.com/engine/getstarted/step_one/" target="_blank">Descargar e instalar Docker</a></p>
+        </section>
+        <section id="ambiente__docker-flujo-prueba">
+          <h2>Flujo de Docker</h2>
+          <h3>Prueba rápida, solo para ver que funciona.</h3>
+          <ul>
+            <li class="fragment">Inicializar un contenedor de MySQL y luego inicial el contenedor de Wordpress vínculado al de MySQL.</li>
+            <li class="fragment">Ver <strong>ejemplo.sh</strong> de la carpeta 01 de ejemplos.</li>
+          </ul>
+        </section>
+        <section id="ambiente__docker-flujo-cambios">
+          <h2>Flujo de Docker</h2>
+          <ul>
+            <li class="fragment">Crear un <a href="https://docs.docker.com/engine/getstarted/step_four/">Dockerfile</a> (Ver <strong>Dockerfile</strong> en carpeta 02 de ejemplos.)</li>
+            <li class="fragment">Ejecutar <em>docker build .</em> en la carpeta donde se encuentra el Dockerfile para construir la imagen con base en los parámetros.</li>
+            <li class="fragment">Ver <strong>ejemplo.sh</strong> de la carpeta 02 de ejemplos.</li>
+          </ul>
+        </section>
+      </section>
+      <section id="wp-cli">
+        <section id="wp-cli__solucion">
+          <h2>WP-CLI</h2>
+          <p>Un conjunto de herramientas de línea de comandos para administrar instalaciones de WordPress.</p>
+          <p><a href="http://wp-cli.org/#installing" target="_blank">Descargar e Instalar</a></p>
+          <p>Ver Dockerfile, build.sh y ejemplo.sh en la carpeta de ejemplo 3.</p>
+        </section>
+        <section id="wp-cli__ejemplo">
+          <h2>WP-CLI</h2>
+          <ul>
+            <li class="fragment">Installar plugins: <em>wp plugin install kint-debugger</em></li>
+            <li class="fragment">Desinstalar plugins: <em>wp plugin uninstall kint-debugger</em></li>
+            <li class="fragment">Activar plugins: <em>wp plugin activate kint-debugger</em></li>
+            <li class="fragment">Desactivar plugins: <em>wp plugin deactivate kint-debugger</em></li>
+            <li class="fragment">Installar temas: <em>wp theme install _tk</em></li>
+            <li class="fragment">Desinstalar temas: <em>wp plugin uninstall _tk</em></li>
+            <li class="fragment">Activar temas: <em>wp plugin activate _tk</em></li>
+            <li class="fragment">Desactivar temas: <em>wp plugin deactivate _tk</em></li>
+            <li class="fragment">Limpiar cache: <em>wp cache flush</em></li>
+          </ul>
+        </section>
+      </section>
+      <section id="docker-compose">
+        <section id="docker-compose__problema">
+          <h2>Docker Compose</h2>
+          <ul>
+            <li class="fragment">Docker nos ayuda a la hora de configurar ambientes, sin embargo todavía presenta un problema para los que no están acostumbrados a línea de comandos.</li>
+            <li class="fragment">Docker Compose simplifica el proceso de crear contenedores vínculados.</li>
+            <li class="fragment">Ver docker-compose.yml en la carpeta de ejemplo 4.</li>
+          </ul>
+        </section>
+      </section>
+      <section id="composer">
+        <section id="composer__solucion">
+          <h2>Composer</h2>
+          <p>Administrador de Depencias para PHP</p>
+          <p>(Algo así como Bower, NPM, NuGET, etc)</p>
+          <p><a href="https://getcomposer.org/download/" target="_blank">Descargar e Instalar</a></p>
+        </section>
+        <section id="composer__problema">
+          <h2>Composer</h2>
+          <h3>Problemas actuales</h3>
+          <ul>
+            <li class="fragment">Los repositorios replican versiones de código que son innecesarias (WordPress, Plugins, Bibliotecas terceras).</li>
+            <li class="fragment">No hay un control de las versiones estables con las que se ha probado un proyecto.</li>
+          </ul>
+        </section>
+        <section id="composer__ejemplo">
+          <h2>Composer</h2>
+          <h3>Idea</h3>
+          <p>Manejemos WordPress y los Plugins como dependencias del proyecto.</p>
+          <p>Ver ejemplo 4.</p>
+        </section>
+      </section>
+      <section id="qa">
+        <h2>QA</h2>
+        <p>Servicios adicionales pueden ser incluidos en el proyecto</p>
+        <p>PHP Unit</p>
+        <p>Behat</p>
+      </section>
+      <section id="deployment">
+        <section id="deployment__problema">
+          <h2>Deployment</h2>
+          <ul>
+            <li class="fragment">FTP (no es lo ideal)</li>
+            <li class="fragment">git hooks</li>
+            <li class="fragment">Servicios de Deployment</li>
+            <li class="fragment">Tareas manuales</li>
+          </ul>
+        </section>
+        <section id="deployment__solucion">
+          <h2>Deployment</h2>
+          <ul>
+            <li class="fragment">Formas automatizadas de actualizar configuración.</li>
+            <li class="fragment">WP Configuration Manager.</li>
+            <li class="fragment">Ver ejemplo en la carpeta 6.</li>
+          </ul>
+        </section>
+      </section>
+      <section id="Preguntas">
+        <h1>Q & A</h1>
+      </section>
+      <section id="cierre">
+        <h1>Muchas Gracias!</h1>
+        <h3><a href="https://github.com/alemadlei-tech/WordCampCR2016" target="_blank">https://github.com/alemadlei-tech/WordCampCR2016</a></h3>
+      </section>
+      <section id="sponsors-cierre">
+        <img src="img/sponsors.jpg" alt="Sponsors" />
+      </section>
+    </div>
+  </div>
+  <script type="text/javascript">
+    Reveal.initialize({
+
+      // Display controls in the bottom right corner
+      controls: true,
+
+      // Display a presentation progress bar
+      progress: true,
+
+      // Display the page number of the current slide
+      slideNumber: false,
+
+      // Push each slide change to the browser history
+      history: false,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+      // Enable the slide overview mode
+      overview: true,
+
+      // Vertical centering of slides
+      center: true,
+
+      // Enables touch navigation on devices with touch input
+      touch: true,
+
+      // Loop the presentation
+      loop: false,
+
+      // Change the presentation direction to be RTL
+      rtl: false,
+
+      // Turns fragments on and off globally
+      fragments: true,
+
+      // Flags if the presentation is running in an embedded mode,
+      // i.e. contained within a limited portion of the screen
+      embedded: false,
+
+      // Number of milliseconds between automatically proceeding to the
+      // next slide, disabled when set to 0, this value can be overwritten
+      // by using a data-autoslide attribute on your slides
+      autoSlide: 0,
+
+      // Stop auto-sliding after user input
+      autoSlideStoppable: true,
+
+      // Enable slide navigation via mouse wheel
+      mouseWheel: false,
+
+      // Hides the address bar on mobile devices
+      hideAddressBar: true,
+
+      // Opens links in an iframe preview overlay
+      previewLinks: false,
+
+      // Transition style
+      transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Transition speed
+      transitionSpeed: 'default', // default/fast/slow
+
+      // Transition style for full page slide backgrounds
+      backgroundTransition: 'default', // default/none/slide/concave/convex/zoom
+
+      // Number of slides away from the current that are visible
+      viewDistance: 3,
+
+      // Parallax background image
+      parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+      // Parallax background size
+      parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+
+
+    });
+  </script>
+</body>
+</html>

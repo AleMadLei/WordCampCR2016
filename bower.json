@@ -1,0 +1,21 @@
+{
+  "name": "wordcamp-cr-2016-workflow-desarroll-deployment",
+  "description": "Presentación para el WordCamp Costa Rica 2016: Flujo de Trabajo, desde el desarrollo hasta el deployment",
+  "main": "index.js",
+  "authors": [
+    "Alejandro Madrigal Leiva <me@alemadlei.tech>"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/alemadlei-tech/WordCampCR2016",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal-js": "^2.6.2"
+  }
+}
