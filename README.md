@@ -2,7 +2,8 @@
 Presentación para el WordCamp Costa Rica 2016: Flujo de trabajo, desde el desarrollo hasta el deployment.
 
 ## Requerimientos
-* Bower debe estar instalado
+* Bower debe estar instalado para ver la presentación en index.html
+* Instalar docker y docker-compose si se planea ejecutar los ejemplos
 
 ## Presentación
 La presentación esta montada con Reveal.js, por lo que el archivo index.html no se va a ver bien de buenas a primeras.
