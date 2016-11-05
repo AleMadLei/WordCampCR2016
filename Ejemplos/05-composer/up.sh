@@ -1,3 +1,1 @@
-#!/bin/bash
-
-docker-compose up &
+../04-docker-compose/up.sh
