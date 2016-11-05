@@ -1,0 +1,11 @@
+{
+    "active_plugins": "a:2:{i:0;s:9:\"hello.php\";i:1;s:17:\"wp-cfm\/wp-cfm.php\";}",
+    "admin_email": "me@alemadlei.tech",
+    "avatar_rating": "G",
+    "blogdescription": "My WordPress Site for WordCamp Costa Rica 2016 with CFM",
+    "blogname": "WordCamp Costa Rica 2016",
+    "category_base": "",
+    "date_format": "F j, Y",
+    "WPLANG": "",
+    ".label": "WordCampCr2016-CFM"
+}
