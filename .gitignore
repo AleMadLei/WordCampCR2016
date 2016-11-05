@@ -3,4 +3,5 @@ bower_components
 
 # Exclude all MySQL data
 .mysqldata/*
-wp/*
+**/.mysqldata
+**/wp
